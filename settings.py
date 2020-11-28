@@ -1,0 +1,23 @@
+#===============поле
+MAP_WIDTH = 5000
+MAP_HEIGHT = 5000
+WINDOW_WIDTH = 800
+WINDOW_HEIGHT = 600
+GRID_WIDTH = MAP_WIDTH //250
+GRID_HEIGHT = MAP_HEIGHT //250
+FRAMERATE = 110
+#===============игра
+SPEED_COEFF = 700
+SPEED_POWER = 0.1
+MAX_SPLIT = 10
+RADIUS_POWER_SCORE = 0.65
+SPLIT_TIME = 10
+#===============моменты
+ENIMIES = 23
+FOOD = 15000 #еда
+DELTA_FOOD = 0.05
+BUSHES = 5 #кусты
+UPDATINGFOOD = 100
+#===============если хотим скины
+ALLOW_SKINS = True
+
