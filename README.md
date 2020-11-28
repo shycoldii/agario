@@ -30,4 +30,3 @@ v1.1 28.11.2020
 
 <h3> Demonstration </h3>
 <img src="https://vk.com/doc113340782_577326294?hash=91fc0e5366d02ffa41&dl=a89a463e884142c5db&wnd=1&module=im">
-<img src="https://sun9-60.userapi.com/impf/wTeS40Djqmh2oLUwkQmRyt1rF8s75cs9w8KoRA/T3-VIF3ovVg.jpg?size=428x209&quality=96&proxy=1&sign=331452915a11116969e1d72c6f5a0886" width=400>
