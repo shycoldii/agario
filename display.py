@@ -46,7 +46,11 @@ class Display:
 
     @classmethod
     def info_box_score(cls, info):
-        cls.draw_rect(vector(cls.window_size.x//1.25,cls.window_size.y//600),vector(cls.window_size.x//5,cls.window_size.y//2.75),(125,125,125))
+        if cls.is_fullscreen:
+            cls.draw_rect(vector(cls.user_size.x//1.25,cls.user_size.y//600),
+                          vector(cls.user_size.x // 5, cls.user_size.y // 2.75), (125, 125, 125))
+        else:
+            cls.draw_rect(vector(cls.window_size.x//1.25,cls.window_size.y//600),vector(cls.window_size.x//5,cls.window_size.y//2.75),(125,125,125))
         r=(cls.window_size.y//2.75)/20
         flag = 0
         place = 0
@@ -69,16 +73,35 @@ class Display:
 
         for i in sorted_10:
             if i[0] == "YOU":
-                cls.draw_text(f"{c}. {i[0]}: {int(i[1])}",vector(cls.window_size.x//1.12,cls.window_size.y//600+r),color=(255,0,0),size=cls.window_size.x//40)
+                if cls.is_fullscreen:
+                    cls.draw_text(f"{c}. {i[0]}: {int(i[1])}",
+                                  vector(cls.user_size.x // 1.12, cls.user_size.y // 600 + r), color=(255, 0, 0),
+                                  size=cls.user_size.x // 40)
+                else:
+                    cls.draw_text(f"{c}. {i[0]}: {int(i[1])}",vector(cls.window_size.x//1.12,cls.window_size.y//600+r),color=(255,0,0),size=cls.window_size.x//40)
             else:
-                cls.draw_text(f"{c}. {i[0]}: {int(i[1])}",
-                              vector(cls.window_size.x // 1.12, cls.window_size.y // 600 + r),size=cls.window_size.x//40)
-            r += (cls.window_size.y//2.75)/11
+                if cls.is_fullscreen:
+                    cls.draw_text(f"{c}. {i[0]}: {int(i[1])}",
+                                 vector(cls.user_size.x // 1.12, cls.user_size.y // 600 + r),
+                                 size=cls.user_size.x // 40)
+                else:
+
+                    cls.draw_text(f"{c}. {i[0]}: {int(i[1])}",
+                                  vector(cls.window_size.x // 1.12, cls.window_size.y // 600 + r),size=cls.window_size.x//40)
+            if cls.is_fullscreen:
+                r += (cls.user_size.y // 2.75) / 11
+            else:
+                r += (cls.window_size.y//2.75)/11
 
             c+=1
 
         if not flag:
-            cls.draw_text(f"{place}. {'YOU'}: {int(info['YOU'])}", vector(cls.window_size.x // 1.12, cls.window_size.y // 600 + r),color = (255,0,0),size=cls.window_size.x//40)
+            if cls.is_fullscreen:
+                cls.draw_text(f"{place}. {'YOU'}: {int(info['YOU'])}",
+                              vector(cls.user_size.x // 1.12, cls.user_size.y // 600 + r), color=(255, 0, 0),
+                              size=cls.user_size.x // 40)
+            else:
+                cls.draw_text(f"{place}. {'YOU'}: {int(info['YOU'])}", vector(cls.window_size.x // 1.12, cls.window_size.y // 600 + r),color = (255,0,0),size=cls.window_size.x//40)
 
 
     @classmethod
@@ -97,6 +120,7 @@ class Display:
         """Изменение размера экрана"""
         if cls.is_fullscreen:
             cls.window = pygame.display.set_mode((w, h), pygame.FULLSCREEN)
+
         else:
             cls.window = pygame.display.set_mode((w, h), pygame.RESIZABLE)
             cls.window_size = vector(w, h)
