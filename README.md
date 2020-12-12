@@ -29,4 +29,4 @@ Alexandrova Daria & Brusova Polina, students of Financial University Faculty of 
 v1.1 28.11.2020
 
 <h3> Demonstration </h3>
-<img src="https://vk.com/doc113340782_577326294?hash=91fc0e5366d02ffa41&dl=a89a463e884142c5db&wnd=1&module=im">
+<img src="https://github.com/shycoldii/agario/blob/main/agario.gif">
